@@ -1,0 +1,12 @@
+Dir C:\SCCMClient\* 
+Del C:\SCCMClient\* 
+$Username = "root" 
+$Password = "welcome2cliqr" 
+$Path = Get-Location 
+$WebClient = New-Object System.Net.WebClient 
+$WebClient.Credentials = New-Object System.Net.Networkcredential($Username, $Password) 
+Write-Host "Downloading" $Path -ForegroundColor Green 
+    $Url = "http://repo.noicldhcl.com/appdata/apps/petclinic.zip" 
+    $Path = "C:\SCCMClient\" 
+    $WebClient.DownloadFile( $url, $path ) 
+Dir C:\SCCMClient\ 
